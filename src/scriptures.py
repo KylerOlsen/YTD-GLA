@@ -17,6 +17,16 @@ class ScriptureFormatting(Enum):
     VERSE_TEXT = 'verse_text'
     FOOTNOTE = 'footnote'
     FOOTNOTE_MARKER = 'footnote_marker'
+    UPPERCASE = 'uppercase'
+    SMALL_CAPS = 'small_caps'
+    ITALICS = 'italics'
+
+    def text(self, text: str) -> str:
+        if self == ScriptureFormatting.UPPERCASE:
+            text = text.upper()
+        elif self == ScriptureFormatting.SMALL_CAPS:
+            text = text.upper()
+        return text
 
     @property
     def format(self):
@@ -29,21 +39,19 @@ class ScriptureFormatting(Enum):
             'lmargin2': 4,
             'rmargin': 4,
         }
-        if self == ScriptureFormatting.BOOK_TITLE: pass
-        elif self == ScriptureFormatting.BOOK_SUBTITLE: pass
-        elif self == ScriptureFormatting.BOOK_INTRODUCTION: pass
-        elif self == ScriptureFormatting.CHAPTER_HEADER: pass
-        elif self == ScriptureFormatting.STUDY_SUMMARY: pass
-        elif self == ScriptureFormatting.VERSE_NUMBER:
+        if self == ScriptureFormatting.VERSE_NUMBER:
             format['font'] = ("Times New Roman", 12, "bold",)
             format['lmargin1'] = 12
-        elif self == ScriptureFormatting.VERSE_TEXT: pass
         elif self == ScriptureFormatting.FOOTNOTE:
             format['foreground'] = 'blue'
         elif self == ScriptureFormatting.FOOTNOTE_MARKER:
             format['font'] = ("Times New Roman", 8, "italic")
             format['foreground'] = 'blue'
-            format['offset'] = 2
+            format['offset'] = 4
+        elif self == ScriptureFormatting.SMALL_CAPS:
+            format['font'] = ("Times New Roman", 10)
+        elif self == ScriptureFormatting.ITALICS:
+            format['font'] = ("Times New Roman", 12, "italic")
         return format
 
 
@@ -70,15 +78,28 @@ class Chapter(ttk.Frame):
                 ScriptureFormatting.VERSE_TEXT.value,
             ))
             length = len(verse['text']) + 2
+            if 'formatting' in verse:
+                for fm in verse['formatting']:
+                    start = length - fm['location']
+                    end = start - len(fm['text'])
+                    fm_e = ScriptureFormatting(fm['format'])
+                    text = fm_e.text(fm['text'])
+                    if fm_e == ScriptureFormatting.SMALL_CAPS:
+                        start -= 1
+                        text = text[1:]
+                    self.text.delete(f"end-{start}c", f"end-{end}c")
+                    self.text.insert(f"end-{end}c", text, fm_e.value)
             if 'footnotes' in verse:
                 for fn in verse['footnotes']:
+                    start = length - fn['start']
+                    end = start - len(fn['text'])
                     self.text.tag_add(
                         ScriptureFormatting.FOOTNOTE.value,
-                        f"end-{length - fn['start']}c",
-                        f"end-{(length - fn['start']) - len(fn['text'])}c",
+                        f"end-{start}c",
+                        f"end-{end}c",
                     )
                     self.text.insert(
-                        f"end-{length - fn['start']}c",
+                        f"end-{start}c",
                         fn['marker'][-1],
                         (ScriptureFormatting.FOOTNOTE_MARKER.value,),
                     )
@@ -96,6 +117,6 @@ if __name__ == '__main__':
 
     chapter = Chapter(root)
     chapter.pack(fill="both", expand=True)
-    chapter.load(data['books'][0]['chapters'][0])
+    chapter.load(data['books'][0]['chapters'][6])
 
     root.mainloop()
