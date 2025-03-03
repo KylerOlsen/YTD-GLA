@@ -39,7 +39,12 @@ class ScriptureFormatting(Enum):
             'lmargin2': 4,
             'rmargin': 4,
         }
-        if self == ScriptureFormatting.VERSE_NUMBER:
+        if self == ScriptureFormatting.CHAPTER_HEADER:
+            format['font'] = ("Times New Roman", 14, "bold",)
+            format['justify'] = "center"
+        elif self == ScriptureFormatting.STUDY_SUMMARY:
+            format['font'] = ("Times New Roman", 12, "italic")
+        elif self == ScriptureFormatting.VERSE_NUMBER:
             format['font'] = ("Times New Roman", 12, "bold",)
             format['lmargin1'] = 12
         elif self == ScriptureFormatting.FOOTNOTE:
@@ -70,7 +75,15 @@ class Chapter(ttk.Frame):
     def load(self, data):
         self.text['state'] = 'normal'
         self.text.delete('1.0','end')
+        self.text.insert('end', data['reference'] + '\n', (
+            ScriptureFormatting.CHAPTER_HEADER.value,
+        ))
         for verse in data['verses']:
+            if "study_summaries" in data and str(verse['verse']) in data["study_summaries"]:
+                self.text.insert(
+                    'end', data["study_summaries"][str(verse['verse'])] + '\n',
+                    (ScriptureFormatting.STUDY_SUMMARY.value,)
+                )
             self.text.insert('end', str(verse['verse']) + ' ', (
                 ScriptureFormatting.VERSE_NUMBER.value,
             ))
