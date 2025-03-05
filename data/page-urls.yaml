@@ -1,0 +1,500 @@
+- url: scriptures
+  resource: collection
+  units:
+  - url: bofm
+    resource: scripture.volume
+    units:
+    - url: title-page
+      resource: scripture.front-matter
+    - url: bofm-title
+      resource: scripture.front-matter
+    - url: introduction
+      resource: scripture.front-matter
+    - url: three
+      resource: scripture.front-matter
+    - url: eight
+      resource: scripture.front-matter
+    - url: js
+      resource: scripture.front-matter
+    - url: explanation
+      resource: scripture.front-matter
+    - url: illustrations
+      resource: scripture.front-matter
+    - url: 1-ne
+      resource: scripture.book
+      units:
+      - range: 22
+        resource: scripture.chapter
+    - url: 2-ne
+      resource: scripture.book
+      units:
+      - range: 33
+        resource: scripture.chapter
+    - url: jacob
+      resource: scripture.book
+      units:
+      - range: 7
+        resource: scripture.chapter
+    - url: enos
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: jarom
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: omni
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: w-of-m
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: mosiah
+      resource: scripture.book
+      units:
+      - range: 29
+        resource: scripture.chapter
+    - url: alma
+      resource: scripture.book
+      units:
+      - range: 63
+        resource: scripture.chapter
+    - url: hel
+      resource: scripture.book
+      units:
+      - range: 16
+        resource: scripture.chapter
+    - url: 3-ne
+      resource: scripture.book
+      units:
+      - range: 30
+        resource: scripture.chapter
+    - url: 4-ne
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: morm
+      resource: scripture.book
+      units:
+      - range: 9
+        resource: scripture.chapter
+    - url: ether
+      resource: scripture.book
+      units:
+      - range: 15
+        resource: scripture.chapter
+    - url: moro
+      resource: scripture.book
+      units:
+      - range: 10
+        resource: scripture.chapter
+    - url: pronunciation
+      resource: study-help.reference-material
+    - url: reference
+      resource: study-help.reference-material
+  - url: ot
+    resource: scripture.volume
+    units:
+    - url: title-page
+      resource: scripture.front-matter
+    - url: dedication
+      resource: scripture.front-matter
+    - url: gen
+      resource: scripture.book
+      units:
+      - range: 50
+        resource: scripture.chapter
+    - url: ex
+      resource: scripture.book
+      units:
+      - range: 40
+        resource: scripture.chapter
+    - url: lev
+      resource: scripture.book
+      units:
+      - range: 27
+        resource: scripture.chapter
+    - url: num
+      resource: scripture.book
+      units:
+      - range: 36
+        resource: scripture.chapter
+    - url: deut
+      resource: scripture.book
+      units:
+      - range: 34
+        resource: scripture.chapter
+    - url: josh
+      resource: scripture.book
+      units:
+      - range: 24
+        resource: scripture.chapter
+    - url: judg
+      resource: scripture.book
+      units:
+      - range: 21
+        resource: scripture.chapter
+    - url: ruth
+      resource: scripture.book
+      units:
+      - range: 4
+        resource: scripture.chapter
+    - url: 1-sam
+      resource: scripture.book
+      units:
+      - range: 31
+        resource: scripture.chapter
+    - url: 2-sam
+      resource: scripture.book
+      units:
+      - range: 24
+        resource: scripture.chapter
+    - url: 1-kgs
+      resource: scripture.book
+      units:
+      - range: 22
+        resource: scripture.chapter
+    - url: 2-kgs
+      resource: scripture.book
+      units:
+      - range: 25
+        resource: scripture.chapter
+    - url: 1-chr
+      resource: scripture.book
+      units:
+      - range: 29
+        resource: scripture.chapter
+    - url: 2-chr
+      resource: scripture.book
+      units:
+      - range: 36
+        resource: scripture.chapter
+    - url: ezra
+      resource: scripture.book
+      units:
+      - range: 10
+        resource: scripture.chapter
+    - url: neh
+      resource: scripture.book
+      units:
+      - range: 13
+        resource: scripture.chapter
+    - url: esth
+      resource: scripture.book
+      units:
+      - range: 10
+        resource: scripture.chapter
+    - url: job
+      resource: scripture.book
+      units:
+      - range: 42
+        resource: scripture.chapter
+    - url: ps
+      resource: scripture.book
+      units:
+      - range: 150
+        resource: scripture.chapter
+    - url: prov
+      resource: scripture.book
+      units:
+      - range: 31
+        resource: scripture.chapter
+    - url: eccl
+      resource: scripture.book
+      units:
+      - range: 12
+        resource: scripture.chapter
+    - url: song
+      resource: scripture.book
+      units:
+      - range: 8
+        resource: scripture.chapter
+    - url: isa
+      resource: scripture.book
+      units:
+      - range: 66
+        resource: scripture.chapter
+    - url: jer
+      resource: scripture.book
+      units:
+      - range: 52
+        resource: scripture.chapter
+    - url: lam
+      resource: scripture.book
+      units:
+      - range: 5
+        resource: scripture.chapter
+    - url: ezek
+      resource: scripture.book
+      units:
+      - range: 48
+        resource: scripture.chapter
+    - url: dan
+      resource: scripture.book
+      units:
+      - range: 12
+        resource: scripture.chapter
+    - url: hosea
+      resource: scripture.book
+      units:
+      - range: 14
+        resource: scripture.chapter
+    - url: joel
+      resource: scripture.book
+      units:
+      - range: 3
+        resource: scripture.chapter
+    - url: amos
+      resource: scripture.book
+      units:
+      - range: 9
+        resource: scripture.chapter
+    - url: obad
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: jonah
+      resource: scripture.book
+      units:
+      - range: 4
+        resource: scripture.chapter
+    - url: micah
+      resource: scripture.book
+      units:
+      - range: 7
+        resource: scripture.chapter
+    - url: nahum
+      resource: scripture.book
+      units:
+      - range: 3
+        resource: scripture.chapter
+    - url: hab
+      resource: scripture.book
+      units:
+      - range: 3
+        resource: scripture.chapter
+    - url: zeph
+      resource: scripture.book
+      units:
+      - range: 3
+        resource: scripture.chapter
+    - url: hag
+      resource: scripture.book
+      units:
+      - range: 2
+        resource: scripture.chapter
+    - url: zech
+      resource: scripture.book
+      units:
+      - range: 14
+        resource: scripture.chapter
+    - url: mal
+      resource: scripture.book
+      units:
+      - range: 4
+        resource: scripture.chapter
+  - url: nt
+    resource: scripture.volume
+    units:
+    - url: title-page
+      resource: scripture.front-matter
+    - url: matt
+      resource: scripture.book
+      units:
+      - range: 28
+        resource: scripture.chapter
+    - url: mark
+      resource: scripture.book
+      units:
+      - range: 16
+        resource: scripture.chapter
+    - url: luke
+      resource: scripture.book
+      units:
+      - range: 24
+        resource: scripture.chapter
+    - url: john
+      resource: scripture.book
+      units:
+      - range: 21
+        resource: scripture.chapter
+    - url: acts
+      resource: scripture.book
+      units:
+      - range: 28
+        resource: scripture.chapter
+    - url: rom
+      resource: scripture.book
+      units:
+      - range: 16
+        resource: scripture.chapter
+    - url: 1-cor
+      resource: scripture.book
+      units:
+      - range: 16
+        resource: scripture.chapter
+    - url: 2-cor
+      resource: scripture.book
+      units:
+      - range: 13
+        resource: scripture.chapter
+    - url: gal
+      resource: scripture.book
+      units:
+      - range: 6
+        resource: scripture.chapter
+    - url: eph
+      resource: scripture.book
+      units:
+      - range: 6
+        resource: scripture.chapter
+    - url: philip
+      resource: scripture.book
+      units:
+      - range: 4
+        resource: scripture.chapter
+    - url: col
+      resource: scripture.book
+      units:
+      - range: 4
+        resource: scripture.chapter
+    - url: 1-thes
+      resource: scripture.book
+      units:
+      - range: 5
+        resource: scripture.chapter
+    - url: 2-thes
+      resource: scripture.book
+      units:
+      - range: 3
+        resource: scripture.chapter
+    - url: 1-tim
+      resource: scripture.book
+      units:
+      - range: 6
+        resource: scripture.chapter
+    - url: 2-tim
+      resource: scripture.book
+      units:
+      - range: 4
+        resource: scripture.chapter
+    - url: titus
+      resource: scripture.book
+      units:
+      - range: 3
+        resource: scripture.chapter
+    - url: philem
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: heb
+      resource: scripture.book
+      units:
+      - range: 13
+        resource: scripture.chapter
+    - url: james
+      resource: scripture.book
+      units:
+      - range: 5
+        resource: scripture.chapter
+    - url: 1-pet
+      resource: scripture.book
+      units:
+      - range: 5
+        resource: scripture.chapter
+    - url: 2-pet
+      resource: scripture.book
+      units:
+      - range: 3
+        resource: scripture.chapter
+    - url: 1-jn
+      resource: scripture.book
+      units:
+      - range: 5
+        resource: scripture.chapter
+    - url: 2-jn
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: 3-jn
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: jude
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: rev
+      resource: scripture.book
+      units:
+      - range: 22
+        resource: scripture.chapter
+  - url: dc-testament
+    resource: scripture.volume
+    units:
+    - url: title-page
+      resource: scripture.front-matter
+    - url: introduction
+      resource: scripture.front-matter
+    - url: chron-order
+      resource: scripture.front-matter
+    - url: dc
+      resource: scripture.division
+      units:
+      - range: 138
+        resource: scripture.section
+    - url: od
+      resource: scripture.division
+      units:
+      - range: 2
+        resource: scripture.declaration
+  - url: pgp
+    resource: scripture.volume
+    units:
+    - url: title-page
+      resource: scripture.front-matter
+    - url: introduction
+      resource: scripture.front-matter
+    - url: moses
+      resource: scripture.book
+      units:
+      - range: 8
+        resource: scripture.chapter
+    - url: abr
+      resource: scripture.book
+      units:
+      - range: 5
+        resource: scripture.chapter
+      - url: fac-1
+        resource: scripture.facsimile
+      - url: fac-2
+        resource: scripture.facsimile
+      - url: fac-3
+        resource: scripture.facsimile
+    - url: js-m
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: js-h
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
+    - url: a-of-f
+      resource: scripture.book
+      units:
+      - range: 1
+        resource: scripture.chapter
