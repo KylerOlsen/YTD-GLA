@@ -87,21 +87,26 @@ class Chapter(ttk.Frame):
             self.text.insert('end', str(verse['verse']) + ' ', (
                 ScriptureFormatting.VERSE_NUMBER.value,
             ))
+            if 'pilcrow' in verse and verse['pilcrow']:
+                self.text.insert('end', '¶ ', (
+                    ScriptureFormatting.VERSE_TEXT.value,
+                ))
             self.text.insert('end', verse['text'] + '\n', (
                 ScriptureFormatting.VERSE_TEXT.value,
             ))
             length = len(verse['text']) + 2
             if 'formatting' in verse:
                 for fm in verse['formatting']:
-                    start = length - fm['location']
-                    end = start - len(fm['text'])
-                    fm_e = ScriptureFormatting(fm['format'])
-                    text = fm_e.text(fm['text'])
-                    if fm_e == ScriptureFormatting.SMALL_CAPS:
-                        start -= 1
-                        text = text[1:]
-                    self.text.delete(f"end-{start}c", f"end-{end}c")
-                    self.text.insert(f"end-{end}c", text, fm_e.value)
+                    if fm['format'] in ScriptureFormatting:
+                        start = length - fm['location']
+                        end = start - len(fm['text'])
+                        fm_e = ScriptureFormatting(fm['format'])
+                        text = fm_e.text(fm['text'])
+                        if fm_e == ScriptureFormatting.SMALL_CAPS:
+                            start -= 1
+                            text = text[1:]
+                        self.text.delete(f"end-{start}c", f"end-{end}c")
+                        self.text.insert(f"end-{end}c", text, fm_e.value)
             if 'footnotes' in verse:
                 for fn in verse['footnotes']:
                     start = length - fn['start']
