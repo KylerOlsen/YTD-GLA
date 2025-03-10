@@ -75,6 +75,17 @@ class Main(ttk.Frame):
             self.scripture = ttk.Frame(self)
             ttk.Label(self.scripture, text='Resource Not Found').pack()
             self.scripture.pack(fill="both", expand=True)
+        except OSError:
+            self.scripture.destroy()
+            self.scripture = ttk.Frame(self)
+            ttk.Label(self.scripture, text='Resource Missing').pack()
+            self.scripture.pack(fill="both", expand=True)
+        except Exception:
+            self.scripture.destroy()
+            self.scripture = ttk.Frame(self)
+            ttk.Label(self.scripture, text='Unknown Error').pack()
+            self.scripture.pack(fill="both", expand=True)
+            raise
         else:
             if resource_type in ['scripture.chapter','scripture.section']:
                 self.scripture.destroy()
