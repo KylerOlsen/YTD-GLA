@@ -1,7 +1,9 @@
 - url: scriptures
+  name: Scriptures
   resource: collection
   units:
   - url: bofm
+    name: Book of Mormon
     resource: scripture.volume
     units:
     - url: title-page
