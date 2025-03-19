@@ -4,10 +4,10 @@
 import tkinter as tk
 from tkinter import ttk
 
-from reference import convert_reference, InvalidReference
-from load_data import load_uri, COLLECTION_RESOURCES, ResourceNotFound
-from scriptures import Chapter
-from collections_ import Collection
+from .reference import convert_reference, InvalidReference
+from .load_data import load_uri, COLLECTION_RESOURCES, ResourceNotFound
+from .scriptures import Chapter
+from .collections_ import Collection
 
 class Main(ttk.Frame):
 
@@ -108,7 +108,7 @@ class Main(ttk.Frame):
         else: self.nav(uri)
 
 
-if __name__ == '__main__':
+def main():
 
     root = tk.Tk()
     root.geometry('500x300')
@@ -117,3 +117,6 @@ if __name__ == '__main__':
     main.pack(fill="both", expand=True)
 
     root.mainloop()
+
+if __name__ == '__main__':
+    main()
