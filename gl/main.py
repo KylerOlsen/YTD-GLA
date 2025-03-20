@@ -4,6 +4,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+import lds_org
+
 from .reference import convert_reference, InvalidReference
 from .load_data import load_uri, COLLECTION_RESOURCES, ResourceNotFound
 from .scriptures import Chapter
@@ -69,6 +71,10 @@ class Main(ttk.Frame):
         self.nav('/'.join(self.uri.get().split('/')[:-1]))
 
     def open_scripture(self, event=None):
+        self.open_scripture_new()
+        # self.open_scripture_default()
+
+    def open_scripture_default(self, event=None):
         try: data, resource_type = load_uri(self.uri.get())
         except ResourceNotFound:
             self.scripture.destroy()
@@ -95,6 +101,44 @@ class Main(ttk.Frame):
             elif resource_type in COLLECTION_RESOURCES:
                 self.scripture.destroy()
                 self.scripture = Collection(self, data, self.nav)
+                self.scripture.pack(fill="both", expand=True)
+            else:
+                self.scripture.destroy()
+                self.scripture = ttk.Frame(self)
+                ttk.Label(self.scripture, text='Resource Not Found').pack()
+                self.scripture.pack(fill="both", expand=True)
+
+    def open_scripture_new(self, event=None):
+        try: data, resource_type = lds_org.load_uri(self.uri.get())
+        except lds_org.ResourceNotFound:
+            self.scripture.destroy()
+            self.scripture = ttk.Frame(self)
+            ttk.Label(self.scripture, text='Resource Not Found').pack()
+            self.scripture.pack(fill="both", expand=True)
+        except OSError:
+            self.scripture.destroy()
+            self.scripture = ttk.Frame(self)
+            ttk.Label(self.scripture, text='Resource Missing').pack()
+            self.scripture.pack(fill="both", expand=True)
+        except Exception:
+            self.scripture.destroy()
+            self.scripture = ttk.Frame(self)
+            ttk.Label(self.scripture, text='Unknown Error').pack()
+            self.scripture.pack(fill="both", expand=True)
+            raise
+        else:
+            if resource_type == 'collection':
+                self.scripture.destroy()
+                self.scripture = Collection(self, data, self.nav)
+                self.scripture.pack(fill="both", expand=True)
+            elif isinstance(data, str):
+                self.scripture.destroy()
+                self.scripture = ttk.Frame(self)
+                text = tk.Text(self.scripture, state='disabled')
+                text.pack(fill="both", expand=True)
+                text['state'] = 'normal'
+                text.insert('end', data)
+                text['state'] = 'disabled'
                 self.scripture.pack(fill="both", expand=True)
             else:
                 self.scripture.destroy()
