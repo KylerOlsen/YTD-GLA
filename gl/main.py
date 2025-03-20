@@ -3,6 +3,7 @@
 
 import tkinter as tk
 from tkinter import ttk
+from tkinterweb import HtmlFrame
 
 import lds_org
 
@@ -134,11 +135,9 @@ class Main(ttk.Frame):
             elif isinstance(data, str):
                 self.scripture.destroy()
                 self.scripture = ttk.Frame(self)
-                text = tk.Text(self.scripture, state='disabled')
-                text.pack(fill="both", expand=True)
-                text['state'] = 'normal'
-                text.insert('end', data)
-                text['state'] = 'disabled'
+                html = HtmlFrame(self.scripture, messages_enabled = False)
+                html.load_html(data)
+                html.pack(fill="both", expand=True)
                 self.scripture.pack(fill="both", expand=True)
             else:
                 self.scripture.destroy()
