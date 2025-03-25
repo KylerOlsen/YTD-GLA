@@ -4,12 +4,27 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinterweb import HtmlFrame
-import importlib
 
 from .reference import convert_reference, InvalidReference
 from .load_data import load_uri, COLLECTION_RESOURCES, ResourceNotFound
 from .scriptures import Chapter
 from .collections_ import Collection
+
+def import_lds_org():
+    import importlib, importlib.util, pathlib, zipimport, sys
+    if pathlib.Path('lds_org').is_dir():
+        return importlib.import_module('lds_org')
+    elif pathlib.Path('lds_org.pyz').is_file():
+        zimp = zipimport.zipimporter('lds_org.pyz')
+        spec = zimp.find_spec('lds_org')
+        if spec is None: raise ImportError("Module not found")
+        zimp.create_module(spec)
+        module = importlib.util.module_from_spec(spec)
+        sys.modules['lds_org'] = module
+        zimp.exec_module(module)
+        return module
+    raise ImportError("Module not found")
+
 
 class Main(ttk.Frame):
 
@@ -78,7 +93,7 @@ class Main(ttk.Frame):
         self.lds_org = None
         self.use_default = True
 
-        try: self.lds_org = importlib.import_module('lds_org')
+        try: self.lds_org = import_lds_org()
         except ImportError: pass
         else: self.use_default = False
 
@@ -104,7 +119,7 @@ class Main(ttk.Frame):
 
     def load_module(self, event=None):
         if self.lds_org is None:
-            try: self.lds_org = importlib.import_module('lds_org')
+            try: self.lds_org = import_lds_org()
             except ImportError: pass
         if self.lds_org is not None:
             self.use_default = not self.use_default
